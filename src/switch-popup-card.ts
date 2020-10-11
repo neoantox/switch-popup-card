@@ -29,9 +29,12 @@ class SwitchPopupCard extends LitElement {
 
     var buttons = this.config.buttons;
     var entities = this.config.entities;
+    var buttonsDefaults = "buttons_defaults" in this.config ? this.config.buttons_defaults : {};
     var fullscreen = "fullscreen" in this.config ? this.config.fullscreen : true;
     var switchWidth = this.config.switchWidth ? this.config.switchWidth : "180px";
     var icon = this.config.icon ? this.config.icon: '';
+
+    buttons.map(button => Object.assign(buttonsDefaults, button));
 
     this.settings = "settings" in this.config ? true : false;
     this.settingsCustomCard = "settingsCard" in this.config ? true : false;
@@ -264,7 +267,7 @@ class SwitchPopupCard extends LitElement {
 
         .multi-switch {
           width: var(--switch-width);
-          background-color: rgba(255, 255, 255, 0.4);
+          background-color: var(--tile-background, rgba(255, 255, 255, 0.8));
           list-style: none;
           margin: 0;
           padding: 0;
