@@ -34,7 +34,7 @@ class SwitchPopupCard extends LitElement {
     var switchWidth = this.config.switchWidth ? this.config.switchWidth : "180px";
     var icon = this.config.icon ? this.config.icon: '';
 
-    buttons.map(button => Object.assign(buttonsDefaults, button));
+    buttons = buttons.map(button => Object.assign(buttonsDefaults, button));
 
     this.settings = "settings" in this.config ? true : false;
     this.settingsCustomCard = "settingsCard" in this.config ? true : false;
